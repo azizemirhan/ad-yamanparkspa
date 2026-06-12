@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasarım Ön İzleme Demosu | Adıyaman Park Spa</title>
+    <meta name="description" content="Adıyaman Park Spa web sitesi tasarım ve kullanılabilirlik demosu. Proje kapsamı ve tamamlanan sayfalar.">
+    
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Demo Page Specific Styles (Keep embedded for clean separation or integrated in style.css) */
+        .demo-page-body {
+            background-color: var(--color-primary);
+            color: var(--color-bg-cream);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 24px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .demo-bg-decoration {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(148, 117, 81, 0.08) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            right: -100px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .demo-bg-decoration-left {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(148, 117, 81, 0.05) 0%, rgba(0,0,0,0) 70%);
+            bottom: -100px;
+            left: -100px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .demo-container {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .demo-logo {
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .demo-logo img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        .demo-card {
+            background-color: rgba(44, 54, 39, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 50px 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 36px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 30px;
+        }
+
+        .demo-badge {
+            display: inline-block;
+            background-color: rgba(148, 117, 81, 0.2);
+            border: 1px solid var(--color-secondary);
+            color: var(--color-secondary-light);
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .demo-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 600;
+            color: var(--color-bg-white);
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .demo-title span {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--color-secondary-light);
+            font-weight: 400;
+        }
+
+        .demo-desc {
+            font-size: 16px;
+            color: rgba(250, 248, 245, 0.85);
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .demo-desc strong {
+            color: var(--color-secondary-light);
+            font-weight: 600;
+        }
+
+        .features-box-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-bg-white);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-box-title svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-secondary-light);
+        }
+
+        .demo-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+
+        .demo-feature-item {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .demo-feature-icon-wrapper {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background-color: rgba(148, 117, 81, 0.15);
+            color: var(--color-secondary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(148, 117, 81, 0.2);
+        }
+
+        .demo-feature-icon-wrapper svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .demo-feature-text h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-bg-white);
+            margin-bottom: 4px;
+        }
+
+        .demo-feature-text p {
+            font-size: 13px;
+            color: rgba(250, 248, 245, 0.65);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .demo-actions-box {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 36px;
+        }
+
+        .demo-actions-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(250, 248, 245, 0.5);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .demo-buttons-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .demo-buttons-row .btn {
+            padding: 16px 24px;
+            font-size: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-demo-outline {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--color-bg-white);
+        }
+
+        .btn-demo-outline:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .demo-footer {
+            font-size: 13px;
+            color: rgba(250, 248, 245, 0.4);
+            font-weight: 300;
+        }
+
+        .demo-footer span {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: rgba(250, 248, 245, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .demo-card {
+                padding: 36px 24px;
+            }
+
+            .demo-features-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .demo-buttons-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+<body class="demo-page-body">
+
+    <div class="demo-bg-decoration"></div>
+    <div class="demo-bg-decoration-left"></div>
+
+    <div class="demo-container">
+        
+        <a href="index.html" class="demo-logo">
+            <img src="assets/logo-light.png" alt="Adıyaman Park Spa Logo">
+        </a>
+
+        <div class="demo-card">
+            
+            <div class="demo-header">
+                <span class="demo-badge">Tasarım Ön İzleme</span>
+                <h1 class="demo-title">Web Proje <span>Demosu</span></h1>
+            </div>
+
+            <p class="demo-desc">
+                Bu çalışma, <strong>Adıyaman Park Spa</strong> firması için özel olarak hazırlanmış <strong>tasarım ve kullanılabilirlik demosu (ön izleme sürümü)</strong> niteliğindedir.
+            </p>
+            
+            <p class="demo-desc">
+                Ana Sayfa ve Hizmetlerimiz sayfaları, firmanın marka kimliğine uygun, lüks ve tam mobil uyumlu (responsive) olarak tasarlanıp kodlanmıştır. **Firma ile anlaşma sağlandığı takdirde;** rezervasyon veritabanı bağlantıları, yönetim paneli entegrasyonu, eksik alt sayfalar ve diğer tüm işlevsel özellikler eksiksiz tamamlanacaktır.
+            </p>
+
+            <h3 class="features-box-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Aktif Ön İzleme Özellikleri:
+            </h3>
+
+            <div class="demo-features-grid">
+                <!-- Feature 1 -->
+                <div class="demo-feature-item">
+                    <div class="demo-feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <div class="demo-feature-text">
+                        <h4>Mobil Alt Menü Terasımı</h4>
+                        <p>Mobil telefonlarda yüzen cam (glassmorphic) alt menü barı ve dinamik scroll takibi.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="demo-feature-item">
+                    <div class="demo-feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <div class="demo-feature-text">
+                        <h4>Hizmetler & Ritüeller</h4>
+                        <p>Kemerli portal çerçeveleri, detaylı süre/sıcaklık badges ve alternatif kavis yerleşimleri.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="demo-feature-item">
+                    <div class="demo-feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="demo-feature-text">
+                        <h4>Masaj & Paket Terapileri</h4>
+                        <p>Dinamik basınç derecesi çubukları ve parlatılmış "Premium Ritüel" teklif kartları.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="demo-feature-item">
+                    <div class="demo-feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="demo-feature-text">
+                        <h4>İnteraktif Randevu Formu</h4>
+                        <p>Hata denetimli, seans doğrulama bildirimli ve temizleme özellikli rezervasyon formu simülasyonu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-actions-box">
+                <div class="demo-actions-label">Ön İzleme Sayfalarını İnceleyin</div>
+                <div class="demo-buttons-row">
+                    <a href="index.html" class="btn btn-primary">
+                        Ana Sayfayı İncele
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="hizmetler.html" class="btn btn-outline btn-demo-outline">
+                        Hizmetlerimiz Sayfası
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="demo-footer">
+            &copy; 2026 Adıyaman Park Spa. Tasarım Ön İzleme Arayüzü. <span>Designed for Wellness</span>
+        </div>
+
+    </div>
+
+</body>
+</html>

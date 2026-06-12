@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adıyaman Park Spa | Bedeninizi ve Ruhunuzu Yenileyin</title>
+    <meta name="description" content="Adıyaman'ın en seçkin spa ve wellness merkezi. Hamam, sauna, buhar ve tuz odası, kese köpük, masaj çeşitleri ve gelin/damat hamamı ile hizmetinizdeyiz.">
+    
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Demo Notice Bar -->
+    <div class="demo-notice-bar">
+        <div class="notice-container">
+            <span class="notice-text">Bu sayfa bir tasarım demosudur. Anlaşma sağlandığında kalan sayfalar tamamlanacaktır.</span>
+            <a href="demo.html" class="notice-link">Detaylı Bilgi & İnceleme Raporu &rarr;</a>
+        </div>
+        <button class="notice-close" aria-label="Kapat">&times;</button>
+    </div>
+
+    <!-- Header / Nav -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="assets/logo-light.png" alt="Adıyaman Park Spa Logo" class="logo-light">
+                <img src="assets/logo-dark.png" alt="Adıyaman Park Spa Logo" class="logo-dark">
+            </a>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="active">Ana Sayfa</a></li>
+                    <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
+                    <li><a href="demo.html">Hakkımızda</a></li>
+                    <li><a href="demo.html">Galeri</a></li>
+                    <li><a href="demo.html">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#randevu" class="btn btn-outline">Randevu Al</a>
+                <button class="mobile-menu-toggle" aria-label="Menüyü Aç">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu (Slide out from side) -->
+    <div class="mobile-drawer">
+        <div class="drawer-header">
+            <a href="#" class="logo">
+                <img src="assets/logo-dark.png" alt="Adıyaman Park Spa Logo">
+            </a>
+            <button class="drawer-close" aria-label="Menüyü Kapat">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <ul>
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
+                <li><a href="demo.html">Hakkımızda</a></li>
+                <li><a href="demo.html">Galeri</a></li>
+                <li><a href="demo.html">İletişim</a></li>
+            </ul>
+        </nav>
+        <div class="drawer-footer">
+            <a href="#randevu" class="btn btn-primary btn-block">Hemen Randevu Al</a>
+        </div>
+    </div>
+    <div class="drawer-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-wrapper">
+                <div class="hero-bg" style="background-image: url('assets/hero-bg.png');"></div>
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge fade-in">
+                        <span class="badge-dot"></span> 
+                        Seçkin Wellness & Spa Deneyimi
+                    </div>
+                    <h1 class="hero-title fade-in delay-1">
+                        Bedeninizi ve <br>Ruhunuzu <span>Yenileyin</span>
+                    </h1>
+                    <p class="hero-desc fade-in delay-2">
+                        Geleneksel Türk hamamı, dinlendirici sauna, şifalı buhar ve tuz odaları ile medikal, klasik ve karma masaj terapileriyle kendinize hak ettiğiniz lüksü ve huzuru yaşatın.
+                    </p>
+                    <div class="hero-actions fade-in delay-3">
+                        <a href="#randevu" class="btn btn-primary">Randevu Al</a>
+                        <a href="hizmetler.html" class="btn btn-text">
+                            Hizmetleri Keşfet
+                            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Subtle Info Cards inside Hero (Like image references) -->
+                <div class="hero-features fade-in delay-4">
+                    <div class="feature-item">
+                        <span class="feature-val">100%</span>
+                        <span class="feature-lbl">Müşteri Memnuniyeti</span>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <span class="feature-val">10+</span>
+                        <span class="feature-lbl">Masaj ve Terapi Türü</span>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <span class="feature-val">09:00</span>
+                        <span class="feature-lbl">Açılış - Kapanış 22:00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Hizmetlerimiz (Our Top Services) -->
+        <section id="hizmetler" class="services-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="header-left">
+                        <span class="section-subtitle">Ayrıcalıklı Deneyim</span>
+                        <h2 class="section-title">Öne Çıkan <span>Hizmetlerimiz</span></h2>
+                    </div>
+                    <div class="header-right">
+                        <p class="section-desc">
+                            Adıyaman Park Spa'nın benzersiz ıslak alan ünitelerinde günün stresinden arınarak sağlığınızı ve zindeliğinizi geri kazanın.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1: Hamam -->
+                    <div class="service-card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/service-hamam.png" alt="Geleneksel Türk Hamamı">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Geleneksel Türk Hamamı</h3>
+                            <p class="card-text">Sıcak mermer taş üzerinde kese ve köpük ritüelleriyle cildinizi yenileyin ve toksinlerden arının.</p>
+                            <a href="#randevu" class="card-link">Randevu Al &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2: Sauna & Buhar -->
+                    <div class="service-card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/service-sauna.png" alt="Sauna & Buhar Odası">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Sauna & Buhar Odası</h3>
+                            <p class="card-text">Yüksek sıcaklık ve buhar banyosu ile kaslarınızı gevşetin, gözeneklerinizi açın ve rahatlayın.</p>
+                            <a href="#randevu" class="card-link">Randevu Al &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Tuz Odası -->
+                    <div class="service-card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/service-tuz-odasi.png" alt="Şifalı Tuz Odası">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Şifalı Tuz Odası</h3>
+                            <p class="card-text">Himalaya tuz tuğlalarıyla kaplı odamızda solunum yollarınızı rahatlatın ve bağışıklık sisteminizi güçlendirin.</p>
+                            <a href="#randevu" class="card-link">Randevu Al &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Gelin Damat Hamamı -->
+                    <div class="service-card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/service-gelin-hamami.png" alt="Gelin & Damat Hamamı">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Gelin & Damat Hamamı</h3>
+                            <p class="card-text">En mutlu gününüz öncesinde sevdiklerinizle birlikte müzikli, ikramlı geleneksel hamam eğlencesi.</p>
+                            <a href="#randevu" class="card-link">Randevu Al &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Masaj ve Terapiler (Premium Massage Terapileri) -->
+        <section id="masajlar" class="therapy-section">
+            <div class="section-container">
+                <div class="therapy-grid">
+                    <!-- Left: Large portrait image representation -->
+                    <div class="therapy-image-block">
+                        <div class="therapy-img-wrapper">
+                            <img src="assets/therapy-massage.png" alt="Profesyonel Masaj Terapisi">
+                        </div>
+                        <div class="therapy-badge">
+                            <span class="badge-number">10+</span>
+                            <span class="badge-text">Uzman Masaj Çeşidi</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Accordion Details -->
+                    <div class="therapy-info">
+                        <span class="section-subtitle">Masaj & Terapi Çeşitleri</span>
+                        <h2 class="section-title">Terapi ile Duyularınızı <span>Harekete Geçirin</span></h2>
+                        <p class="therapy-section-desc">
+                            Uzman terapistlerimiz tarafından uygulanan dinlendirici ve tedavi edici masaj türlerimiz ile ağrılarınızdan kurtulun ve enerjinizi tazeleyin.
+                        </p>
+
+                        <!-- Accordion Wrapper -->
+                        <div class="accordion-wrapper">
+                            <!-- Accordion Item 1: Klasik Masaj -->
+                            <div class="accordion-item active">
+                                <button class="accordion-header">
+                                    <span class="accordion-title">Klasik (İsveç) Gevşeme Masajı</span>
+                                    <span class="accordion-icon"></span>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content-inner">
+                                        <p>Tüm vücuda uygulanan hafif ve orta şiddetteki manevralarla kan dolaşımını hızlandırır, kas kasılmalarını çözer ve genel bir zihinsel/bedensel gevşeme sağlar.</p>
+                                        <div class="accordion-details">
+                                            <span class="detail-tag"><strong>Süre:</strong> 50 / 80 Dakika</span>
+                                            <span class="detail-tag"><strong>Faydası:</strong> Stres Giderme, Gevşeme</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accordion Item 2: Medikal Masaj -->
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span class="accordion-title">Medikal (Klinik & Ağrı) Masajı</span>
+                                    <span class="accordion-icon"></span>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content-inner">
+                                        <p>Boyun, sırt, bel ve eklem ağrılarının tedavisine yardımcı olmak amacıyla, kas liflerini hedef alan derin doku teknikleri ve nokta baskı uygulamalarıyla gerçekleştirilir.</p>
+                                        <div class="accordion-details">
+                                            <span class="detail-tag"><strong>Süre:</strong> 45 / 60 Dakika</span>
+                                            <span class="detail-tag"><strong>Faydası:</strong> Ağrı Azaltma, Kas Açma</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accordion Item 3: Mixed Masaj -->
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span class="accordion-title">Mixed (Kombinasyon) Masaj Terapisi</span>
+                                    <span class="accordion-icon"></span>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content-inner">
+                                        <p>Klasik, medikal ve aromaterapi tekniklerinin uzman terapistlerimizce size özel olarak harmanlandığı, hem derin baskı hem de gevşeme sağlayan imza masajımızdır.</p>
+                                        <div class="accordion-details">
+                                            <span class="detail-tag"><strong>Süre:</strong> 60 / 90 Dakika</span>
+                                            <span class="detail-tag"><strong>Faydası:</strong> Bütünsel Zindelik</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accordion Item 4: Kese Köpük Terapisi -->
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span class="accordion-title">Geleneksel Kese Köpük Masajı</span>
+                                    <span class="accordion-icon"></span>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content-inner">
+                                        <p>Hamamın sıcak atmosferinde ipek kese yardımıyla ölü derilerin atılması ve ardından saf zeytinyağlı sabun köpüğüyle yapılan rahatlatıcı masaj uygulamasıdır.</p>
+                                        <div class="accordion-details">
+                                            <span class="detail-tag"><strong>Süre:</strong> 30 Dakika</span>
+                                            <span class="detail-tag"><strong>Faydası:</strong> Cilt Yenileme, Detoks</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Section 4: Sağlık Faydaları & Bütünsel Yaklaşım -->
+        <section id="faydalar" class="benefits-section">
+            <div class="section-container">
+                <div class="benefits-grid">
+                    <!-- Left: Benefits Cards Grid -->
+                    <div class="benefits-info">
+                        <span class="section-subtitle">Bütünsel Sağlık</span>
+                        <h2 class="section-title">Sağlığınız İçin <span>Bütünsel Yaklaşım</span></h2>
+                        <p class="section-desc">
+                            Spa ve wellness ritüellerimiz sadece anlık bir rahatlama sunmaz, uzun vadede beden ve ruh sağlığınıza kalıcı faydalar sağlar.
+                        </p>
+
+                        <div class="benefits-cards-container">
+                            <!-- Card 1 -->
+                            <div class="benefit-card">
+                                <div class="benefit-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                                    </svg>
+                                </div>
+                                <div class="benefit-card-content">
+                                    <h3 class="benefit-card-title">Daha İyi Uyku</h3>
+                                    <p class="benefit-card-text">Kas gerilimini azaltıp sinir sistemini yatıştırarak derin ve kesintisiz bir uyku döngüsüne geçişi kolaylaştırır.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="benefit-card">
+                                <div class="benefit-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                                    </svg>
+                                </div>
+                                <div class="benefit-card-content">
+                                    <h3 class="benefit-card-title">Stres ve Kaygı Giderme</h3>
+                                    <p class="benefit-card-text">Zihinsel dinginlik sağlayarak stres hormonu kortizol seviyesini düşürür, kaygılardan arındırır.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="benefit-card">
+                                <div class="benefit-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                    </svg>
+                                </div>
+                                <div class="benefit-card-content">
+                                    <h3 class="benefit-card-title">Gelişmiş Kan Dolaşımı</h3>
+                                    <p class="benefit-card-text">Isı ve masaj manipülasyonları sayesinde kan akışını hızlandırarak dokulara daha fazla oksijen gitmesini sağlar.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="benefit-card">
+                                <div class="benefit-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                        <path d="M2 17l10 5 10-5"></path>
+                                        <path d="M2 12l10 5 10-5"></path>
+                                    </svg>
+                                </div>
+                                <div class="benefit-card-content">
+                                    <h3 class="benefit-card-title">Toksinlerin Atılımı</h3>
+                                    <p class="benefit-card-text">Hamam ve sauna banyolarıyla gözenekleri açar ve terleme yoluyla vücuttaki ağır metalleri ve toksinleri uzaklaştırır.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Large Arched Product Image -->
+                    <div class="benefits-image-block">
+                        <div class="benefits-img-wrapper">
+                            <img src="assets/benefits-natural.png" alt="Doğal Terapi Malzemeleri">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Galeri & Ambiyans (Sanctuary Gallery) -->
+        <section id="galeri" class="gallery-section">
+            <div class="section-container">
+                <div class="gallery-header">
+                    <span class="section-subtitle">Huzur Dolu Anlar</span>
+                    <h2 class="section-title">Huzur Dolu <span>Sığınağımız</span></h2>
+                    <p class="section-desc">
+                        Adıyaman Park Spa'nın sakinleştirici atmosferini, uzman uygulamalarımızı ve dinlendirici alanlarımızı keşfedin.
+                    </p>
+                </div>
+
+                <!-- Asymmetric Collage Masonry Grid -->
+                <div class="asymmetric-gallery">
+                    <!-- Item 1: Tall Portrait -->
+                    <div class="gallery-item item-tall">
+                        <img src="assets/gallery-facial.png" alt="Cilt Bakımı Terapisi">
+                        <div class="gallery-overlay-hover">
+                            <span class="gallery-tag">Cilt Bakımı</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Large Landscape -->
+                    <div class="gallery-item item-wide">
+                        <img src="assets/gallery-massage.png" alt="Sırt Masajı Terapisi">
+                        <div class="gallery-overlay-hover">
+                            <span class="gallery-tag">Klasik Masaj</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Square bubble hamam -->
+                    <div class="gallery-item item-square">
+                        <img src="assets/gallery-hamam.png" alt="Geleneksel Hamam Köpük Terapisi">
+                        <div class="gallery-overlay-hover">
+                            <span class="gallery-tag">Hamam Ritüelleri</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Square hot stones -->
+                    <div class="gallery-item item-square">
+                        <img src="assets/gallery-stones.png" alt="Sıcak Taş Terapisi">
+                        <div class="gallery-overlay-hover">
+                            <span class="gallery-tag">Sıcak Taş Masajı</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: Tall Right Ambiance -->
+                    <div class="gallery-item item-tall">
+                        <img src="assets/gallery-ambiance.png" alt="Spa Dinlenme Alanı">
+                        <div class="gallery-overlay-hover">
+                            <span class="gallery-tag">Huzurlu Ambiyans</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Müşteri Yorumları (Testimonials) -->
+        <section id="yorumlar" class="testimonials-section">
+            <div class="section-container">
+                <div class="testimonials-header text-center">
+                    <span class="section-subtitle">Misafir Deneyimleri</span>
+                    <h2 class="section-title">Misafirlerimizin <span>Görüşleri</span></h2>
+                    <p class="section-desc">
+                        Adıyaman Park Spa'da huzur bulan ve deneyimlerini paylaşan misafirlerimizin yorumlarından bazıları.
+                    </p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <!-- Review 1 -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="rating-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            Adıyaman'da böylesine lüks ve temiz bir spa merkezinin açılması harika olmuş. Hamam ve kese köpük masajı tek kelimeyle mükemmeldi. Kesinlikle düzenli geleceğim.
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 class="author-name">Demirhan Ö.</h4>
+                            <span class="author-service">Geleneksel Hamam & Kese</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="rating-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            Masa başı çalışmaktan kaynaklanan sırt ağrılarım için medikal masaj seansı aldım. Terapist gerçekten işinin uzmanıydı, seans sonrası kuş gibi hafiflemiş hissettim. Tavsiye ederim.
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 class="author-name">Ahmet K.</h4>
+                            <span class="author-service">Medikal Sırt Masajı</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="rating-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            Hafta sonu eşimle beraber sauna, buhar odası ve klasik masaj aldık. Temizlik, ilgi alaka ve hijyen standartları gerçekten çok yüksek. Güler yüzlü ekibe teşekkür ederiz.
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 class="author-name">Elif & Murat Y.</h4>
+                            <span class="author-service">Mix Masaj & Sauna</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: İletişim & Randevu Formu -->
+        <section id="iletisim" class="contact-section">
+            <div id="randevu" style="position: absolute; top: -90px;"></div>
+            <div class="section-container">
+                <div class="contact-grid">
+                    <!-- Left: Contact info and Map -->
+                    <div class="contact-info-block">
+                        <span class="section-subtitle">İletişim Bilgileri</span>
+                        <h2 class="section-title">Bize <span>Ulaşın</span></h2>
+                        <p class="contact-desc">
+                            Sormak istediğiniz sorular ve rezervasyon detayları için doğrudan arayabilir veya randevu talep formunu doldurabilirsiniz.
+                        </p>
+
+                        <div class="contact-details-list">
+                            <!-- Detail item 1: Address -->
+                            <div class="contact-detail-item">
+                                <div class="detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Adresimiz</h4>
+                                    <p>Alitaşı Mahallesi, Atatürk Bulvarı, No: 142 (Park AVM Karşısı), Merkez / Adıyaman</p>
+                                </div>
+                            </div>
+
+                            <!-- Detail item 2: Phone -->
+                            <div class="contact-detail-item">
+                                <div class="detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Telefon Numarası</h4>
+                                    <p><a href="tel:+905330000000">+90 533 000 00 00</a></p>
+                                </div>
+                            </div>
+
+                            <!-- Detail item 3: Hours -->
+                            <div class="contact-detail-item">
+                                <div class="detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Çalışma Saatleri</h4>
+                                    <p>Her Gün: 09:00 - 22:00 (Karma & Aile Seansları)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stylized Map Card -->
+                        <div class="map-card-wrapper">
+                            <div class="map-canvas">
+                                <div class="map-placeholder">
+                                    <svg class="map-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                                        <line x1="9" y1="3" x2="9" y2="18"></line>
+                                        <line x1="15" y1="6" x2="15" y2="21"></line>
+                                    </svg>
+                                    <span class="map-placeholder-text">Haritayı Google Haritalar'da Aç</span>
+                                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline btn-sm">Yol Tarifi Al</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Appointment Request Form -->
+                    <div class="booking-form-block">
+                        <div class="booking-card">
+                            <h3 class="booking-title">Hemen Randevu Alın</h3>
+                            <p class="booking-subtitle">Bilgilerinizi doldurun, randevunuzu hızlıca planlayalım.</p>
+                            
+                            <form id="appointment-form" class="booking-form">
+                                <div class="form-group">
+                                    <label for="form-name">Adınız Soyadınız</label>
+                                    <input type="text" id="form-name" placeholder="Örn. Ahmet Yılmaz" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-phone">Telefon Numaranız</label>
+                                    <input type="tel" id="form-phone" placeholder="Örn. 0533 000 00 00" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-service">Tercih Ettiğiniz Hizmet</label>
+                                    <select id="form-service" required>
+                                        <option value="" disabled selected>Hizmet Seçiniz</option>
+                                        <option value="hamam">Geleneksel Türk Hamamı</option>
+                                        <option value="sauna">Sauna & Buhar Odası</option>
+                                        <option value="tuz-odasi">Şifalı Tuz Odası</option>
+                                        <option value="gelin-hamami">Gelin / Damat Hamamı</option>
+                                        <option value="klasik-masaj">Klasik (İsveç) Gevşeme Masajı</option>
+                                        <option value="medikal-masaj">Medikal (Ağrı) Masajı</option>
+                                        <option value="mixed-masaj">Mixed (Kombinasyon) Masaj Terapisi</option>
+                                    </select>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="form-date">Tarih</label>
+                                        <input type="date" id="form-date" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="form-time">Saat</label>
+                                        <select id="form-time" required>
+                                            <option value="" disabled selected>Saat Seçiniz</option>
+                                            <option value="09:00">09:00</option>
+                                            <option value="10:30">10:30</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:30">13:30</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:30">16:30</option>
+                                            <option value="18:00">18:00</option>
+                                            <option value="19:30">19:30</option>
+                                            <option value="21:00">21:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Randevu Talebi Gönder</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="section-container">
+            <div class="footer-grid">
+                <!-- Col 1: About/Branding -->
+                <div class="footer-col branding-col">
+                    <a href="#" class="logo">
+                        <img src="assets/logo-light.png" alt="Adıyaman Park Spa Logo">
+                    </a>
+                    <p class="footer-about-text">
+                        Bedeninizin ve ruhunuzun dengesini geri kazanması için tasarlanmış lüks ve huzur dolu bir sığınak. Uzman terapistlerimiz ile en üst düzey hijyen standartlarında hizmetinizdeyiz.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col links-col">
+                    <h4 class="footer-title">Hızlı Menü</h4>
+                    <ul>
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
+                        <li><a href="#masajlar">Masaj Türleri</a></li>
+                        <li><a href="#faydalar">Faydaları</a></li>
+                        <li><a href="#galeri">Galeri</a></li>
+                        <li><a href="#iletisim">İletişim</a></li>
+                        <li><a href="demo.html">Hakkımızda</a></li>
+                        <li><a href="demo.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div class="footer-col links-col">
+                    <h4 class="footer-title">Hizmetlerimiz</h4>
+                    <ul>
+                        <li><a href="hizmetler.html#hamam">Geleneksel Türk Hamamı</a></li>
+                        <li><a href="hizmetler.html#sauna-tuz">Sauna & Buhar Odası</a></li>
+                        <li><a href="hizmetler.html#sauna-tuz">Şifalı Tuz Odası</a></li>
+                        <li><a href="hizmetler.html#gelin-hamami">Gelin & Damat Hamamı</a></li>
+                        <li><a href="#masajlar">Medikal Masaj Terapisi</a></li>
+                        <li><a href="#masajlar">Klasik & Karma Masajlar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact info -->
+                <div class="footer-col contact-col">
+                    <h4 class="footer-title">Bize Ulaşın</h4>
+                    <p class="footer-contact-info"><strong>Tel:</strong> +90 533 000 00 00</p>
+                    <p class="footer-contact-info"><strong>E-posta:</strong> info@adiyamanparkspa.com</p>
+                    <p class="footer-contact-info"><strong>Adres:</strong> Atatürk Bulvarı, No: 142, Merkez / Adıyaman</p>
+                    
+                    <div class="footer-social-icons">
+                        <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/905330000000" target="_blank" class="social-link" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adıyaman Park Spa. Tüm Hakları Saklıdır.</p>
+                <p class="footer-developer">Designed for Elegance & Wellness</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Menu -->
+    <nav class="mobile-bottom-nav">
+        <ul class="bottom-nav-list">
+            <li class="bottom-nav-item active">
+                <a href="#home" class="bottom-nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span class="nav-text">Ana Sayfa</span>
+                </a>
+            </li>
+            <li class="bottom-nav-item">
+                <a href="hizmetler.html" class="bottom-nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span class="nav-text">Hizmetler</span>
+                </a>
+            </li>
+            <li class="bottom-nav-item center-item">
+                <a href="#randevu" class="bottom-nav-link randevu-nav-link">
+                    <div class="floating-circle">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <span class="nav-text">Randevu</span>
+                </a>
+            </li>
+            <li class="bottom-nav-item">
+                <a href="demo.html" class="bottom-nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <span class="nav-text">Hakkımızda</span>
+                </a>
+            </li>
+            <li class="bottom-nav-item">
+                <a href="demo.html" class="bottom-nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span class="nav-text">İletişim</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- JS Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

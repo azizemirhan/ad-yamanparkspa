@@ -1,0 +1,2835 @@
+/* ==========================================================================
+   ADINAMAN PARK SPA - DESIGN SYSTEM & STYLESHEET
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Variables
+   -------------------------------------------------------------------------- */
+:root {
+    /* Color Palette */
+    --color-primary: hsl(95, 18%, 18%);      /* Luxurious dark olive green */
+    --color-primary-light: hsl(95, 18%, 25%);
+    --color-secondary: rgb(148, 117, 81);    /* Elegant bronze/gold */
+    --color-secondary-light: hsl(35, 30%, 55%);
+    --color-bg-cream: hsl(40, 25%, 97%);     /* Soft warm cream background */
+    --color-bg-white: #ffffff;
+    --color-text-main: hsl(95, 18%, 12%);    /* Deep forest-charcoal */
+    --color-text-muted: hsl(40, 10%, 42%);   /* Muted warm grey */
+    --color-overlay: rgba(26, 32, 23, 0.45);  /* Dark tint overlay for image readability */
+    
+    /* Typography */
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    /* Layout & Spacing */
+    --header-height: 90px;
+    --header-height-mobile: 70px;
+    --container-width: 1200px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 32px; /* Used for rounded hero corners and cards */
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 30px rgba(0, 0, 0, 0.03);
+    --shadow-medium: 0 12px 40px rgba(44, 54, 39, 0.08);
+    --shadow-glass: 0 8px 32px 0 rgba(44, 54, 39, 0.06);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-main);
+    background-color: var(--color-bg-cream);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-bg-cream);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography & Helper Classes
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+    box-shadow: 0 4px 15px rgba(44, 54, 39, 0.15);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(148, 117, 81, 0.25);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: var(--color-bg-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-bg-white);
+    color: var(--color-primary);
+    border-color: var(--color-bg-white);
+    transform: translateY(-2px);
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--color-bg-white);
+    padding: 0;
+    font-size: 15px;
+    position: relative;
+}
+
+.btn-text::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--color-bg-white);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.btn-text:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.btn-text .btn-arrow {
+    margin-left: 8px;
+    transition: transform var(--transition-fast);
+}
+
+.btn-text:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.btn-block {
+    display: flex;
+    width: 100%;
+}
+
+/* Header Specific Button style modification */
+.main-header.scrolled .btn-outline {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.main-header.scrolled .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+}
+
+/* --------------------------------------------------------------------------
+   5. Header & Navigation
+   -------------------------------------------------------------------------- */
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transition: var(--transition-smooth);
+}
+
+.main-header.scrolled {
+    position: fixed;
+    height: 80px;
+    background-color: rgba(250, 248, 245, 0.9);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-soft);
+    border-bottom: 1px solid rgba(44, 54, 39, 0.05);
+}
+
+.header-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+.logo img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition-smooth);
+}
+
+/* Image logo toggling for scrolled state */
+.logo .logo-dark {
+    display: none;
+}
+
+.logo .logo-light {
+    display: block;
+}
+
+.main-header.scrolled .logo .logo-light {
+    display: none;
+}
+
+.main-header.scrolled .logo .logo-dark {
+    display: block;
+}
+
+/* Desktop Nav Menu */
+.nav-menu ul {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-menu a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-bg-white);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--color-bg-white);
+}
+
+/* Scrolled Nav overrides */
+.main-header.scrolled .nav-menu a {
+    color: var(--color-text-muted);
+}
+
+.main-header.scrolled .nav-menu a::after {
+    background-color: var(--color-secondary);
+}
+
+.main-header.scrolled .nav-menu a:hover,
+.main-header.scrolled .nav-menu a.active {
+    color: var(--color-primary);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Mobile Toggle Hamburger */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 24px;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mobile-menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-bg-white);
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+.main-header.scrolled .mobile-menu-toggle .bar {
+    background-color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   6. Mobile Drawer Menu
+   -------------------------------------------------------------------------- */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    background-color: var(--color-bg-white);
+    z-index: 1000;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.05);
+    transition: var(--transition-smooth);
+}
+
+.mobile-drawer.open {
+    right: 0;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.drawer-header .logo {
+    color: var(--color-primary);
+}
+
+.drawer-header .logo .accent-word {
+    color: var(--color-secondary);
+}
+
+.drawer-close {
+    background: none;
+    border: none;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.drawer-nav {
+    margin-bottom: auto;
+}
+
+.drawer-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.drawer-nav a {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text-main);
+    display: block;
+    padding: 8px 0;
+}
+
+.drawer-nav a:hover {
+    color: var(--color-secondary);
+    padding-left: 8px;
+}
+
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+}
+
+.drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   7. Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 80px;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-cream);
+    overflow: hidden;
+}
+
+.hero-bg-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+    animation: slowZoom 20s ease-out forwards;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(26, 32, 23, 0.6) 0%,
+        rgba(26, 32, 23, 0.45) 50%,
+        rgba(26, 32, 23, 0.7) 100%
+    );
+}
+
+.hero-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-content {
+    max-width: 620px;
+    color: var(--color-bg-white);
+}
+
+/* Hero Badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+    color: var(--color-bg-white);
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: hsl(95, 60%, 65%);
+    display: inline-block;
+    box-shadow: 0 0 8px hsl(95, 60%, 65%);
+    animation: pulse 2s infinite alternate;
+}
+
+/* Hero Title */
+.hero-title {
+    font-size: clamp(40px, 5.5vw, 68px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-bg-white);
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+}
+
+.hero-title span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-bg-white);
+}
+
+/* Hero Description */
+.hero-desc {
+    font-size: clamp(16px, 1.8vw, 18px);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* Hero Actions Row */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Info Cards grid */
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: rgba(44, 53, 39, 0.55);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 36px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-glass);
+    color: var(--color-bg-white);
+    width: 100%;
+    max-width: 360px;
+    margin-left: auto;
+    align-self: center;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.feature-val {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-bg-white);
+    line-height: 1.1;
+}
+
+.feature-lbl {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.feature-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 100%);
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   8. Mobile Bottom Navigation Menu
+   -------------------------------------------------------------------------- */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    width: 90%;
+    max-width: 450px;
+    background-color: rgba(250, 248, 245, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-full);
+    box-shadow: 0 10px 30px rgba(44, 54, 39, 0.12);
+    z-index: 998;
+    padding: 8px 12px;
+    display: none; /* Shown in media queries */
+    transition: var(--transition-bounce);
+}
+
+.bottom-nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.bottom-nav-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-text-muted);
+    font-size: 10px;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    padding: 6px 4px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-icon {
+    width: 22px;
+    height: 22px;
+    transition: var(--transition-bounce);
+}
+
+.bottom-nav-link:hover,
+.bottom-nav-item.active .bottom-nav-link {
+    color: var(--color-primary);
+}
+
+.bottom-nav-item.active .nav-icon {
+    transform: scale(1.12);
+    color: var(--color-secondary);
+}
+
+/* Floating Center Element for Appointment */
+.bottom-nav-item.center-item {
+    position: relative;
+    top: -14px;
+    z-index: 10;
+}
+
+.floating-circle {
+    width: 54px;
+    height: 54px;
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(44, 54, 39, 0.3);
+    margin-bottom: -4px;
+    transition: var(--transition-bounce);
+    border: 4px solid var(--color-bg-cream);
+}
+
+.floating-circle .nav-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-bg-white);
+}
+
+.randevu-nav-link:hover .floating-circle {
+    transform: scale(1.1) translateY(-3px);
+    background-color: var(--color-secondary);
+    box-shadow: 0 8px 25px rgba(148, 117, 81, 0.4);
+}
+
+.bottom-nav-item.center-item .nav-text {
+    position: absolute;
+    bottom: -16px;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* --------------------------------------------------------------------------
+   9. Animations
+   -------------------------------------------------------------------------- */
+@keyframes slowZoom {
+    0% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.25);
+        opacity: 1;
+    }
+}
+
+/* Entrance Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.fade-in.delay-1 {
+    animation-delay: 0.15s;
+}
+
+.fade-in.delay-2 {
+    animation-delay: 0.3s;
+}
+
+.fade-in.delay-3 {
+    animation-delay: 0.45s;
+}
+
+.fade-in.delay-4 {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+/* Large Tablets / Laptops */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 30px;
+    }
+    
+    .hero-features {
+        padding: 28px;
+    }
+}
+
+/* Small Tablets / Landscapes */
+@media (max-width: 900px) {
+    .nav-menu {
+        display: none; /* Hide desktop menu */
+    }
+    
+    .mobile-menu-toggle {
+        display: flex; /* Show Hamburger */
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 48px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        margin: 0 auto;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .hero-features {
+        margin: 0 auto;
+        flex-direction: row;
+        max-width: 100%;
+        justify-content: space-around;
+        text-align: center;
+    }
+    
+    .feature-divider {
+        height: auto;
+        width: 1px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 100%);
+    }
+}
+
+/* Phones & Portrait Devices */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 70px;
+    }
+    
+    .main-header.scrolled {
+        height: var(--header-height);
+    }
+    
+    .hero-section {
+        padding-top: calc(var(--header-height) + 20px);
+        padding-bottom: 120px; /* Leave space for bottom menu */
+    }
+    
+    .hero-bg-wrapper {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg); /* Only round bottom corners */
+    }
+    
+    .hero-container {
+        padding: 0 16px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+    }
+    
+    .hero-features {
+        padding: 20px;
+    }
+    
+    .feature-val {
+        font-size: 24px;
+    }
+    
+    .feature-lbl {
+        font-size: 11px;
+    }
+    
+    /* Show Mobile Bottom Nav */
+    .mobile-bottom-nav {
+        display: block;
+    }
+    
+    .header-actions .btn-outline {
+        display: none; /* Hide booking button in header on mobile since bottom menu has it */
+    }
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-features {
+        padding: 16px;
+        gap: 10px;
+    }
+    
+    .feature-item {
+        flex: 1;
+    }
+    
+    .mobile-bottom-nav {
+        width: 95%;
+        bottom: 10px;
+    }
+    
+    .floating-circle {
+        width: 48px;
+        height: 48px;
+        border-width: 3px;
+    }
+    
+    .floating-circle .nav-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .bottom-nav-item.center-item {
+        top: -12px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   11. Services Section (Hizmetlerimiz)
+   -------------------------------------------------------------------------- */
+.services-section, .therapy-section {
+    padding: 140px 0;
+    background-color: var(--color-bg-cream);
+}
+
+.section-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-header {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: flex-end;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary);
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: var(--color-primary);
+}
+
+.section-title span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-secondary);
+}
+
+.section-desc {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Services Arched Cards Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background: transparent;
+    transition: var(--transition-smooth);
+}
+
+.card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 0.75; /* Portrait layout for arched cards */
+    border-radius: 140px 140px 24px 24px; /* The premium portal shape */
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(44, 54, 39, 0.05);
+    position: relative;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-card:hover .card-image-wrapper img {
+    transform: scale(1.08);
+}
+
+.card-content {
+    text-align: center;
+    padding: 0 8px;
+}
+
+.card-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.card-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-secondary);
+    display: inline-block;
+    transition: var(--transition-fast);
+}
+
+.card-link:hover {
+    color: var(--color-primary);
+    transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   12. Therapy Section (Massage Accordion)
+   -------------------------------------------------------------------------- */
+.therapy-section {
+    background-color: var(--color-bg-white); /* Alternative light background for visual rhythm */
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0; /* Premium page break curve */
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.01);
+}
+
+.therapy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Left side Portrait Image with Badge */
+.therapy-image-block {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.therapy-img-wrapper {
+    width: 100%;
+    aspect-ratio: 0.8;
+    border-radius: 200px 200px 32px 32px; /* Smooth portal arch */
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(44, 54, 39, 0.05);
+}
+
+.therapy-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.therapy-badge {
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-secondary-light);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.badge-text {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* Right side Accordion details */
+.therapy-info {
+    max-width: 540px;
+}
+
+.therapy-section-desc {
+    color: var(--color-text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 20px 0 40px 0;
+    font-weight: 300;
+}
+
+/* Accordion Elements */
+.accordion-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(44, 54, 39, 0.08);
+    padding-bottom: 16px;
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 0;
+    cursor: pointer;
+    color: var(--color-primary);
+    transition: var(--transition-fast);
+}
+
+.accordion-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.accordion-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-primary);
+    transition: transform var(--transition-fast) ease;
+}
+
+/* Horizontal line */
+.accordion-icon::before {
+    top: 9px;
+    left: 2px;
+    width: 16px;
+    height: 2px;
+}
+
+/* Vertical line */
+.accordion-icon::after {
+    top: 2px;
+    left: 9px;
+    width: 2px;
+    height: 16px;
+}
+
+.accordion-item.active .accordion-icon::after {
+    transform: rotate(90deg) scaleY(0); /* Hide vertical line when active to make a minus sign */
+}
+
+.accordion-item.active .accordion-header {
+    color: var(--color-secondary);
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.accordion-item.active .accordion-body {
+    max-height: 200px; /* Will be set dynamically by JS, but this is fallback */
+}
+
+.accordion-content-inner {
+    padding: 8px 0 16px 0;
+}
+
+.accordion-content-inner p {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.accordion-details {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.detail-tag {
+    font-size: 12px;
+    background-color: var(--color-bg-cream);
+    color: var(--color-primary);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    border: 1px solid rgba(44, 54, 39, 0.04);
+}
+
+/* --------------------------------------------------------------------------
+   13. Responsive Adaptations (New Sections)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .therapy-grid {
+        gap: 40px;
+    }
+    
+    .therapy-image-block {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 900px) {
+    .services-section, .therapy-section {
+        padding: 100px 0;
+    }
+    
+    .section-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .therapy-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .therapy-image-block {
+        order: -1; /* Display image on top of accordion on tablets/mobile */
+    }
+    
+    .therapy-badge {
+        right: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .therapy-section {
+        border-radius: var(--radius-md) var(--radius-md) 0 0;
+    }
+}
+
+@media (max-width: 580px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+    
+    .card-image-wrapper {
+        border-radius: 120px 120px 20px 20px;
+    }
+    
+    .therapy-img-wrapper {
+        border-radius: 160px 160px 24px 24px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   14. Benefits Section (Sağlık Faydaları)
+   -------------------------------------------------------------------------- */
+.benefits-section {
+    padding: 140px 0;
+    background-color: var(--color-bg-cream);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.benefits-info {
+    max-width: 660px;
+}
+
+.benefits-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.benefit-card {
+    display: flex;
+    gap: 16px;
+    background: transparent;
+}
+
+.benefit-icon-wrapper {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-bg-white);
+    color: var(--color-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(44, 54, 39, 0.04);
+    border: 1px solid rgba(44, 54, 39, 0.04);
+}
+
+.benefit-icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+}
+
+.benefit-card-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.benefit-card-text {
+    font-size: 13.5px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.benefits-image-block {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.benefits-img-wrapper {
+    width: 100%;
+    aspect-ratio: 0.75;
+    border-radius: 200px 200px 32px 32px; /* Premium portal shape */
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(44, 54, 39, 0.05);
+}
+
+.benefits-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   15. Gallery Section (Asymmetric Gallery Collage)
+   -------------------------------------------------------------------------- */
+.gallery-section {
+    padding: 140px 0;
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.01);
+}
+
+.gallery-header {
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+}
+
+.gallery-header .section-desc {
+    margin-top: 16px;
+}
+
+/* Asymmetric Collage Grid (4 columns, auto rows) */
+.asymmetric-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 24px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(44, 54, 39, 0.04);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Item Specific Grid Spans */
+.gallery-item.item-tall {
+    grid-row: span 2;
+}
+
+.gallery-item.item-wide {
+    grid-column: span 2;
+}
+
+.gallery-item.item-square {
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+/* Hover Overlay Styles */
+.gallery-overlay-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 32, 23, 0.45);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.gallery-tag {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-bg-white);
+    padding: 8px 18px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    transform: translateY(10px);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item:hover .gallery-overlay-hover {
+    opacity: 1;
+}
+
+.gallery-item:hover .gallery-tag {
+    transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   16. Responsive Adaptations (Phase 3 Sections)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .benefits-grid {
+        gap: 40px;
+    }
+    
+    .benefits-cards-container {
+        gap: 24px;
+    }
+    
+    .asymmetric-gallery {
+        grid-auto-rows: 180px;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .benefits-section,
+    .gallery-section {
+        padding: 100px 0;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+    }
+    
+    .benefits-info {
+        margin: 0 auto;
+    }
+    
+    .benefits-image-block {
+        order: -1; /* Image on top */
+    }
+    
+    .asymmetric-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+    }
+    
+    /* Reset spans for 2-column mobile layout to avoid messy overlaps */
+    .gallery-item.item-tall {
+        grid-row: span 1;
+    }
+    
+    .gallery-item.item-wide {
+        grid-column: span 2;
+    }
+    
+    .gallery-item.item-square {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 580px) {
+    .benefits-cards-container {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: 40px auto 0 auto;
+        text-align: left;
+    }
+    
+    .benefit-card {
+        background-color: var(--color-bg-white);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-soft);
+        border: 1px solid rgba(44, 54, 39, 0.03);
+    }
+    
+    .asymmetric-gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+    
+    .gallery-item.item-wide {
+        grid-column: span 1;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   21. Services Page Banner (Hizmetler Hero)
+   -------------------------------------------------------------------------- */
+.services-page .main-header:not(.scrolled) .logo,
+.services-page .main-header:not(.scrolled) .nav-menu a,
+.services-page .main-header:not(.scrolled) .mobile-menu-toggle .bar {
+    color: var(--color-bg-white);
+}
+
+.services-page .main-header:not(.scrolled) .btn-outline {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: var(--color-bg-white);
+}
+
+.page-banner {
+    position: relative;
+    padding-top: calc(var(--header-height) + 60px);
+    padding-bottom: 90px;
+    background-color: var(--color-primary);
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.banner-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.02);
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(26, 32, 23, 0.75) 0%,
+        rgba(26, 32, 23, 0.6) 100%
+    );
+}
+
+.banner-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+    color: var(--color-bg-white);
+}
+
+.breadcrumb {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.breadcrumb a:hover {
+    color: var(--color-bg-white);
+}
+
+.breadcrumb .current {
+    color: var(--color-secondary-light);
+}
+
+.banner-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 600;
+    color: var(--color-bg-white);
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.banner-title span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-bg-white);
+}
+
+.banner-subtitle {
+    font-size: clamp(15px, 1.6vw, 17px);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 620px;
+    margin: 18px auto 0 auto;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   22. Services Detail Section (Hamam & Islak Alan)
+   -------------------------------------------------------------------------- */
+.services-detail-section {
+    padding: 140px 0;
+    background-color: var(--color-bg-cream);
+}
+
+.services-section-header {
+    margin-bottom: 90px;
+}
+
+.service-detail-row {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.service-detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.service-detail-row.row-reverse .service-detail-image {
+    order: 2;
+}
+
+.service-detail-row.row-reverse .service-detail-info {
+    order: 1;
+}
+
+.service-detail-image {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.service-detail-image .detail-img-wrapper {
+    width: 100%;
+    aspect-ratio: 0.8;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(44, 54, 39, 0.05);
+    overflow: hidden;
+}
+
+/* Alternate Arched Shapes for rhythmic look */
+.service-detail-row:nth-child(even) .detail-img-wrapper {
+    border-radius: 200px 200px 32px 32px; /* Standard Arch */
+}
+
+.service-detail-row:nth-child(odd) .detail-img-wrapper {
+    border-radius: 32px 32px 200px 200px; /* Inverted Arch (Looks super modern!) */
+}
+
+.service-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-detail-info {
+    max-width: 580px;
+}
+
+.detail-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-secondary);
+    margin-bottom: 12px;
+}
+
+.detail-title {
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.25;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+.detail-desc {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.detail-features-list {
+    margin: 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detail-features-list li {
+    position: relative;
+    padding-left: 28px;
+    font-size: 14.5px;
+    color: var(--color-text-main);
+    font-weight: 400;
+}
+
+.detail-features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.detail-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.meta-badge {
+    font-size: 12.5px;
+    background-color: var(--color-bg-white);
+    color: var(--color-primary);
+    padding: 7px 16px;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(44, 54, 39, 0.03);
+}
+
+.detail-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.btn-dark-outline {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-dark-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+    border-color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   23. Responsive Adaptations (Hizmetler Page)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+    .service-detail-row {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        margin-bottom: 80px;
+    }
+    
+    .service-detail-row.row-reverse .service-detail-image {
+        order: initial;
+    }
+    
+    .service-detail-row.row-reverse .service-detail-info {
+        order: initial;
+    }
+    
+    .service-detail-info {
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .detail-features-list {
+        text-align: left;
+        max-width: 420px;
+        margin: 28px auto;
+    }
+    
+    .detail-meta {
+        justify-content: center;
+    }
+    
+    .detail-actions {
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .detail-actions .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-detail-section {
+        padding: 100px 0;
+    }
+    
+    .services-section-header {
+        margin-bottom: 60px;
+    }
+    
+    .service-detail-image .detail-img-wrapper {
+        border-radius: 120px 120px 20px 20px !important; /* Forces normal arch on mobile */
+    }
+}
+
+/* --------------------------------------------------------------------------
+   24. Services Massage Section (Masaj Terapileri)
+   -------------------------------------------------------------------------- */
+.services-massage-section {
+    padding: 140px 0;
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0; /* Premium page break curve */
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.01);
+}
+
+.massage-types-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.massage-type-card {
+    background-color: var(--color-bg-cream);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(44, 54, 39, 0.03);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.massage-type-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-medium);
+}
+
+.massage-card-image {
+    width: 100%;
+    aspect-ratio: 1.2;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(44, 54, 39, 0.05);
+}
+
+.massage-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.massage-type-card:hover .massage-card-image img {
+    transform: scale(1.06);
+}
+
+.massage-card-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.massage-card-title {
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+
+.massage-card-desc {
+    font-size: 14.5px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+.massage-card-details {
+    padding: 16px 0;
+    border-top: 1px dashed rgba(44, 54, 39, 0.1);
+    border-bottom: 1px dashed rgba(44, 54, 39, 0.1);
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.massage-detail-item {
+    font-size: 13.5px;
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+.massage-detail-item strong {
+    color: var(--color-primary);
+}
+
+.massage-pressure-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pressure-label {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+.pressure-scale-bar {
+    flex-grow: 1;
+    max-width: 100px;
+    height: 6px;
+    background-color: rgba(44, 54, 39, 0.1);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.pressure-progress {
+    height: 100%;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-full);
+}
+
+.progress-light-medium {
+    width: 45%;
+}
+
+.progress-medium {
+    width: 70%;
+}
+
+.progress-deep {
+    width: 100%;
+}
+
+.pressure-value {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.massage-benefits-list {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.massage-benefits-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 13.5px;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.massage-benefits-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 16px;
+    top: -2px;
+}
+
+.massage-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   25. Curated Spa Packages (Lüks Spa Paketleri)
+   -------------------------------------------------------------------------- */
+.services-packages-section {
+    padding: 140px 0;
+    background-color: var(--color-bg-cream);
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+.package-card {
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(44, 54, 39, 0.04);
+    box-shadow: var(--shadow-soft);
+    padding: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.package-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-medium);
+}
+
+.package-card.card-populer {
+    border: 2px solid var(--color-secondary);
+    box-shadow: 0 16px 40px rgba(148, 117, 81, 0.08);
+}
+
+.populer-ribbon {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-secondary);
+    color: var(--color-bg-white);
+    padding: 5px 20px;
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(148, 117, 81, 0.3);
+    z-index: 2;
+}
+
+.package-card-header {
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(44, 54, 39, 0.06);
+    padding-bottom: 24px;
+}
+
+.package-badge-mini {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.package-card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+
+.package-duration-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-muted);
+}
+
+.duration-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-secondary);
+}
+
+.package-duration {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.package-card-body {
+    flex-grow: 1;
+    margin-bottom: 30px;
+}
+
+.package-card-desc {
+    font-size: 14.5px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-weight: 300;
+}
+
+.package-includes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.package-includes-list li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 14px;
+    color: var(--color-text-main);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.package-includes-list li strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.package-includes-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.package-card-footer {
+    margin-top: auto;
+}
+
+.btn-text-link {
+    display: block;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-top: 16px;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.btn-text-link:hover {
+    color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   26. Responsive Breakpoints (Massage & Packages)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .massage-types-grid,
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .services-massage-section,
+    .services-packages-section {
+        padding: 100px 0;
+    }
+    
+    .massage-types-grid,
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .massage-type-card,
+    .package-card {
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .package-card.card-populer {
+        transform: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .massage-card-content,
+    .package-card {
+        padding: 24px;
+    }
+    
+    .package-card-title {
+        font-size: 21px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   17. Testimonials Section (Müşteri Yorumları)
+   -------------------------------------------------------------------------- */
+.testimonials-section {
+    padding: 140px 0;
+    background-color: var(--color-bg-cream);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--color-bg-white);
+    padding: 40px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(44, 54, 39, 0.03);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.quote-icon {
+    font-family: var(--font-serif);
+    font-size: 96px;
+    line-height: 1;
+    color: rgba(148, 117, 81, 0.15);
+    position: absolute;
+    top: 10px;
+    right: 24px;
+    pointer-events: none;
+}
+
+.rating-stars {
+    color: var(--color-secondary);
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-size: 15px;
+    color: var(--color-text-main);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+.testimonial-author {
+    margin-top: auto;
+}
+
+.author-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 2px;
+}
+
+.author-service {
+    font-size: 12px;
+    color: var(--color-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   18. Contact & Booking Section (İletişim & Rezervasyon)
+   -------------------------------------------------------------------------- */
+.contact-section {
+    padding: 140px 0;
+    background-color: var(--color-bg-white);
+    position: relative;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.contact-info-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-desc {
+    color: var(--color-text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 20px 0 40px 0;
+    font-weight: 300;
+}
+
+.contact-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.contact-detail-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.detail-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-bg-cream);
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(44, 54, 39, 0.04);
+}
+
+.detail-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.detail-content h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 6px;
+}
+
+.detail-content p {
+    font-size: 14.5px;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.detail-content a:hover {
+    color: var(--color-secondary);
+}
+
+/* Map Card */
+.map-card-wrapper {
+    margin-top: auto;
+}
+
+.map-canvas {
+    width: 100%;
+    height: 220px;
+    background-color: var(--color-bg-cream);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(44, 54, 39, 0.05);
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px;
+    text-align: center;
+}
+
+.map-placeholder-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--color-secondary);
+}
+
+.map-placeholder-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.map-placeholder .btn-sm {
+    padding: 8px 18px;
+    font-size: 12px;
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.map-placeholder .btn-sm:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-bg-white);
+}
+
+/* Booking Card (Form container) */
+.booking-card {
+    background-color: var(--color-primary);
+    padding: 48px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-medium);
+    color: var(--color-bg-white);
+}
+
+.booking-title {
+    color: var(--color-bg-white);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.booking-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 36px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-secondary-light);
+}
+
+.booking-form input,
+.booking-form select {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-bg-white);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.booking-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.booking-form select option {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+    border-color: var(--color-secondary);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   19. Main Footer
+   -------------------------------------------------------------------------- */
+.main-footer {
+    background-color: hsl(95, 18%, 11%);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 80px 0 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr 0.9fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.branding-col .logo {
+    color: var(--color-bg-white);
+}
+
+.branding-col .logo .accent-word {
+    color: var(--color-secondary-light);
+}
+
+.footer-about-text {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.footer-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-bg-white);
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background-color: var(--color-secondary);
+}
+
+.footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col a {
+    font-size: 14px;
+    font-weight: 400;
+    transition: var(--transition-fast);
+}
+
+.footer-col a:hover {
+    color: var(--color-bg-white);
+    padding-left: 4px;
+}
+
+.footer-contact-info {
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.footer-contact-info strong {
+    color: var(--color-bg-white);
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.social-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+.social-link:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-bg-white);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.footer-developer {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   20. Responsive Adaptations (Phase 4 Sections)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .testimonials-section,
+    .contact-section {
+        padding: 100px 0;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .booking-form-block {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .booking-card {
+        padding: 30px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-card {
+        padding: 24px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   27. Demo Notice Bar Styles
+   -------------------------------------------------------------------------- */
+.demo-notice-bar {
+    background-color: var(--color-secondary);
+    color: var(--color-bg-white);
+    padding: 12px 48px 12px 24px;
+    font-size: 13.5px;
+    font-weight: 500;
+    text-align: center;
+    position: relative;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.demo-notice-bar.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+    margin-top: -44px; /* Collapse space */
+}
+
+.notice-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.notice-text {
+    opacity: 0.95;
+}
+
+.notice-link {
+    color: var(--color-bg-white);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.notice-link:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.notice-close {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-bg-white);
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.notice-close:hover {
+    opacity: 1;
+}
+
+/* Spacing adjustment for headers when banner is active */
+body.demo-banner-visible .main-header:not(.scrolled) {
+    top: 42px; /* Push absolute header down to clear space */
+}
+
+@media (max-width: 900px) {
+    body.demo-banner-visible .main-header:not(.scrolled) {
+        top: 60px; /* More vertical space for wrapped banner text */
+    }
+}
+
+@media (max-width: 580px) {
+    .demo-notice-bar {
+        padding: 12px 36px 12px 16px;
+        font-size: 11.5px;
+    }
+    
+    .notice-container {
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+    }
+    
+    body.demo-banner-visible .main-header:not(.scrolled) {
+        top: 65px;
+    }
+}
