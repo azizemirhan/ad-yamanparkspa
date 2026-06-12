@@ -1,0 +1,8 @@
+# Cloudflare Workers - Static assets deployment for Adıyaman Park Spa
+
+name = "adyaman-park-spa"
+compatibility_date = "2026-06-12"
+
+# Static site - tüm HTML, CSS ve assets kök dizinde olduğu için "." olarak ayarlandı
+[assets]
+directory = "."

@@ -1,0 +1,14 @@
+.git/
+.gitignore
+.wranglerignore
+wrangler.toml
+README.md
+walkthrough.md
+find_ids.js
+find_section_attributes.js
+inspect_selectors.js
+koyuarkaplan.png
+açıkarkaplan.png
+package.json
+package-lock.json
+node_modules/
